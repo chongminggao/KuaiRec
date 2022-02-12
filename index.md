@@ -4,7 +4,7 @@
 
 The following figure illustrates the user-item matrices in traditional datasets and our proposed *KwaiRec*.
 
-![kwaidata](https://github.com/chongminggao/KwaiRec/blob/main/figs/KwaiRec.png)
+![kwaidata](https://raw.githubusercontent.com/chongminggao/KwaiRec/main/figs/KwaiRec.png)
 
 With all user's preference known, KwaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
 
