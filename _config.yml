@@ -1,1 +1,5 @@
+# show_downloads: true
+google_analytics:
 theme: jekyll-theme-cayman
+title: [KwaiRec]
+description: "A Fully Observed Dataset for Recommender Systems (Density: Almost 100%)"
