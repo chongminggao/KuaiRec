@@ -1,10 +1,10 @@
-[![LICENSE](https://img.shields.io/badge/license-CC--BY--4.0-green)](https://github.com/chongminggao/KuaiRec/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-CC--BY--4.0-green)](https://github.com/chongminggao/KuaiRec/blob/main/LICENSE)
 
 *KwaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kwai](https://www.kwai.com/). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and leaved feedback. 
 
 The following figure illustrates the user-item matrices in traditional datasets and our proposed *KwaiRec*.
 
-![kwaidata](figs/KwaiRec.png)
+![kwaidata](https://github.com/chongminggao/KwaiRec/blob/main/figs/KwaiRec.png)
 
 With all user's preference known, KwaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
 
@@ -84,6 +84,7 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | friend_list | The list of ID of the friends of this user. | list  | [4202,7126] |
 
 #### 3. Descriptions of the fields in `item_categories.csv`. 
+
 | Field Name: | Description                     | Type  | Example |
 | ----------- | ------------------------------- | ----- | ------- |
 | photo_id    | The ID of the video.            | int64 | 1       |
