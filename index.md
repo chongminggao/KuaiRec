@@ -1,6 +1,6 @@
 [![LICENSE](https://img.shields.io/badge/license-CC--BY--4.0-green)](https://github.com/chongminggao/KwaiRec/blob/main/LICENSE)
 
-*KwaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kwai](https://www.kwai.com/). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and leaved feedback. 
+*KwaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kwai](https://www.kwai.com/). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and then leaved feedback. 
 
 The following figure illustrates the user-item matrices in traditional datasets and *KwaiRec*.
 
@@ -8,7 +8,8 @@ The following figure illustrates the user-item matrices in traditional datasets 
 
 With all user's preference known, KwaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
 
-If you use it in your work, please cite our paper: [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](#) [![PDF](https://img.shields.io/badge/-PDF-red)](#)
+If you use it in your work, please cite our paper:
+ [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](#) [![PDF](https://img.shields.io/badge/-PDF-red)](#)
 
 > arxiv: todo
 
