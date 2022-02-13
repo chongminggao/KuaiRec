@@ -1,13 +1,12 @@
 ---
 ---
 
-@import 'jekyll-theme-cayman';
-
-
 // Headers
 $header-heading-color: #fff !default;
 $header-bg-color: #ff7100 !default;
 $header-bg-color-secondary: #1caff2 !default;
+
+@import 'jekyll-theme-cayman';
 
 
 .page-header {
