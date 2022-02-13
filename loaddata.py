@@ -1,11 +1,15 @@
 import pandas as pd
 
+print("Loading big matrix...")
 big_matrix = pd.read_csv("data/big_matrix.csv")
+print("Loading small matrix...")
 small_matrix = pd.read_csv("data/small_matrix.csv")
 
+print("Loading social network...")
 social_network = pd.read_csv("data/social_network.csv")
 social_network["friend_list"] = social_network["friend_list"].map(eval)
 
+print("Loading item features...")
 item_feat = pd.read_csv("data/item_categories.csv")
 item_feat["feat"] = item_feat["feat"].map(eval)
 

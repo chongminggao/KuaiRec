@@ -1,6 +1,6 @@
 # KwaiRec: A Fully Observed Dataset for Recommender Systems (Density: Almost 100%)
 
-[![LICENSE](https://img.shields.io/badge/license-CC--BY--4.0-green)](https://github.com/chongminggao/KuaiRec/blob/main/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-CC--BY--4.0-green)](https://github.com/chongminggao/KwaiRec/blob/main/LICENSE)
 
 *KwaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kwai](https://www.kwai.com/). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and leaved feedback. 
 
@@ -10,7 +10,7 @@ The following figure illustrates the user-item matrices in traditional datasets 
 
 With all user's preference known, KwaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
 
-If you use it in your work, please cite our paper:
+If you use it in your work, please cite our paper: [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](#) [![PDF](https://img.shields.io/badge/-PDF-red)](#)
 
 > arxiv: todo
 
@@ -22,15 +22,13 @@ If you use it in your work, please cite our paper:
 
 We provides several options to download this dataset:
 
-  1. Directly download this repository on Github.
+  1. Download mannually through the following links:
 
-  2. Download mannually through the following links:
+     - Optional link 1: [Google Drive](https://drive.google.com/file/d/1-ZZ4d3GtPb5fwxGsdQ6Dti09dhEy23Mm/view?usp=sharing)
 
-     - Optional link 1: Google Drive
+     - Optional link 2: [USTC Drive](https://rec.ustc.edu.cn/share/de0098e0-8c9e-11ec-a7fd-37f9e83716e7)
 
-     - Optional link 2: USTC Drive
-
-  3. Download using the "wget" command.
+  2. Download using the "wget" command.
 
      ```shell
      wget https://linux.chongminggao.top/data/KwaiRec.zip
@@ -91,6 +89,3 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | ----------- | ------------------------------- | ----- | ------- |
 | photo_id    | The ID of the video.            | int64 | 1       |
 | feat        | The list of tags of this video. | list  | [27,9]  |
-
-| feat        | The list of tags of this video. | list  | [27,9]  |
-
