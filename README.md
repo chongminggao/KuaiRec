@@ -1,14 +1,14 @@
-# KwaiRec: A Fully Observed Dataset for Recommender Systems (Density: Almost 100%)
+# KuaiRec: A Fully Observed Dataset for Recommender Systems (Density: Almost 100%)
 
-[![LICENSE](https://img.shields.io/badge/license-CC BY--SA 4.0-green)](https://github.com/chongminggao/KwaiRec/blob/main/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-CC BY--SA 4.0-green)](https://github.com/chongminggao/KuaiRec/blob/main/LICENSE)
 
-*KwaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kwai](https://www.kwai.com/). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and then leaved feedback. 
+*KuaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kuaishou](https://www.kuaishou.com/cn). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and then leaved feedback. 
 
-The following figure illustrates the user-item matrices in traditional datasets and *KwaiRec*.
+The following figure illustrates the user-item matrices in traditional datasets and *KuaiRec*.
 
-![kwaidata](https://raw.githubusercontent.com/chongminggao/KwaiRec/main/figs/KwaiRec.png)
+![kuaidata](https://raw.githubusercontent.com/chongminggao/KuaiRec/main/figs/KuaiRec.png)
 
-With all user's preference known, KwaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
+With all user's preference known, KuaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
 
 If you use it in your work, please cite our paper:
  [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](#) [![PDF](https://img.shields.io/badge/-PDF-red)](#)
@@ -32,7 +32,7 @@ We provides several options to download this dataset:
   2. Download using the "wget" command.
 
      ```shell
-     wget https://linux.chongminggao.top/data/KwaiRec.zip
+     wget https://linux.chongminggao.top/data/KuaiRec.zip
      ```
 
 
@@ -42,7 +42,7 @@ The script `loaddata.py` provides a simple way to load the data via Pandas in Py
 
 ## Data Descriptions
 
-*KwaiRec* contains millions of user-item interactions as well as the side information include the item categorires and social network. Four files are included in the download data: 
+*KuaiRec* contains millions of user-item interactions as well as the side information include the item categorires and social network. Four files are included in the download data: 
 
   ```shell
   .
@@ -53,7 +53,7 @@ The script `loaddata.py` provides a simple way to load the data via Pandas in Py
   │   └── item_categories.csv
   ```
 
-The statistics of the small matrix and big matrix in *KwaiRec*.
+The statistics of the small matrix and big matrix in *KuaiRec*.
 
 |                | #Users | #Items | #Interactions | #Attributes of items | #Users who have friends | Density |
 | -------------- | :----: | :----: |  :----: | :------------------: | :---------------------: | :-----: |
