@@ -56,7 +56,7 @@ The statistics of the small matrix and big matrix in *KuaiRec*.
 |                | #Users | #Items | #Interactions | #Attributes of items | #Users who have friends | Density |
 | -------------- | :----: | :----: |  :----: | :------------------: | :---------------------: | :-----: |
 | *small matrix* | 1,411  | 3,327  | 4,676,570 |          31          | 146 |  99.6%  |
-| *big matrix*   | 7,176  | 10,729 | 12,530,806 |          31          | 472 | 16.3% |
+| *big matrix*   | 7,176  | 10,729 | 12,530,806 |          31          | 472 | 13.4% |
 
 Note that the density of small matrix is 99.6% instead of 100% because some users have explicitly indicated that they would not be willing to receive recommendations from certain authors. I.e., They blocked these videos.
 
