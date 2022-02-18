@@ -43,7 +43,7 @@ The script `loaddata.py` provides a simple way to load the data via Pandas in Py
 *KuaiRec* contains millions of user-item interactions as well as the side information include the item categorires and social network. Four files are included in the download data: 
 
   ```shell
-  .
+  KuaiRec
   ├── data
   │   ├── big_matrix.csv          
   │   ├── small_matrix.csv
@@ -65,13 +65,13 @@ Note that the density of small matrix is 99.6% instead of 100% because some user
 | Field Name:    | Description                                              | Type    | Example                   |
 | -------------- | -------------------------------------------------------- | ------- | ------------------------- |
 | user_id        | The ID of the user.                                      | int64   | 0                         |
-| photo_id       | The ID of the viewed video.                              | int64   | 3650                      |
+| video_id       | The ID of the viewed video.                              | int64   | 3650                      |
 | play_duration  | Time of video viewing of this interaction (millisecond). | int64   | 13838                     |
-| photo_duration | Time of this video (millisecond).                        | int64   | 10867                     |
+| video_duration | Time of this video (millisecond).                        | int64   | 10867                     |
 | time           | Human-readable date for this interaction                 | str     | "2020-07-05 00:08:23.438" |
 | date           | Date of this interaction                                 | int64   | 20200705                  |
 | timestamp      | Unix timestamp                                           | float64 | 1593878903.438            |
-| watch_ratio    | The video watching ratio (=play_duration/photo_duration) | float64 | 1.273397                  |
+| watch_ratio    | The video watching ratio (=play_duration/video_duration) | float64 | 1.273397                  |
 
 The "watch_ratio" can be deemed as the label of the interaction. Note: there is no "like" signal for this dataset. If you need this binary signal in your scenarios, you can create it yourself. E.g., `like = 1 if watch_ratio > 2.0`.
 
@@ -86,5 +86,5 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 
 | Field Name: | Description                     | Type  | Example |
 | ----------- | ------------------------------- | ----- | ------- |
-| photo_id    | The ID of the video.            | int64 | 1       |
+| video_id    | The ID of the video.            | int64 | 1       |
 | feat        | The list of tags of this video. | list  | [27,9]  |
