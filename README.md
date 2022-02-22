@@ -1,6 +1,6 @@
 # KuaiRec: A Fully-observed Dataset for Recommender Systems (Density: Almost 100%)
 
-[![LICENSE](https://img.shields.io/badge/license-CC BY--SA 4.0-green)](https://github.com/chongminggao/KuaiRec/blob/main/LICENSE)
+[![LICENSE](https://img.shields.io/badge/license-CC%20BY--SA%204.0-green)](https://github.com/chongminggao/KuaiRec/blob/main/LICENSE)
 
 *KuaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kuaishou](https://www.kuaishou.com/cn). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and then leaved feedback. 
 
