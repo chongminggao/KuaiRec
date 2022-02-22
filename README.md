@@ -29,7 +29,7 @@ We provides several options to download this dataset:
 
      - Optional link 1: [Google Drive](https://drive.google.com/file/d/1qe5hOSBxzIuxBb1G_Ih5X-O65QElollE/view?usp=sharing)
 
-     - Optional link 2: [USTC Drive](https://rec.ustc.edu.cn/share/0141c8d0-93a5-11ec-9163-5df1ecd410ee)
+     - Optional link 2: [USTC Drive](https://rec.ustc.edu.cn/share/9a5a3040-93c0-11ec-9384-0bd461127fcd)
 
   2. Download using the "wget" command.
 
