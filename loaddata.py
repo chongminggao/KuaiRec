@@ -10,7 +10,7 @@ social_network = pd.read_csv("data/social_network.csv")
 social_network["friend_list"] = social_network["friend_list"].map(eval)
 
 print("Loading item features...")
-item_feat = pd.read_csv("data/item_categories.csv")
+item_feat = pd.read_csv("data/item_feat.csv")
 item_feat["feat"] = item_feat["feat"].map(eval)
 
 print("All data loaded.")
