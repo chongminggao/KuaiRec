@@ -1,4 +1,4 @@
-# KuaiRec: A Fully Observed Dataset for Recommender Systems (Density: Almost 100%)
+# KuaiRec: A Fully-observed Dataset for Recommender Systems (Density: Almost 100%)
 
 [![LICENSE](https://img.shields.io/badge/license-CC BY--SA 4.0-green)](https://github.com/chongminggao/KuaiRec/blob/main/LICENSE)
 
