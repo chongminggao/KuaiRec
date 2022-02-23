@@ -41,7 +41,7 @@ We provides several options to download this dataset:
 
   - Optional link 1: [Google Drive](https://drive.google.com/file/d/1qe5hOSBxzIuxBb1G_Ih5X-O65QElollE/view?usp=sharing)
 
-  - Optional link 2: [USTC Drive](https://rec.ustc.edu.cn/share/9a5a3040-93c0-11ec-9384-0bd461127fcd)
+  - Optional link 2: [USTC Drive (中科大)](https://rec.ustc.edu.cn/share/35cc0260-9461-11ec-aa37-c3875710aabd)
 
 The script `loaddata.py` provides a simple way to load the data via Pandas in Python.
 
