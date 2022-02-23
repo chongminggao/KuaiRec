@@ -13,13 +13,14 @@ With all user's preference known, KuaiRec can used in offline evaluation (i.e., 
 If you use it in your work, please cite our paper:
  [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](https://arxiv.org/abs/2202.10842) [![PDF](https://img.shields.io/badge/-PDF-red)](https://arxiv.org/pdf/2202.10842.pdf)
 
->@article{gao2022kuairec,
->	title={KuaiRec: A Fully-observed Dataset for Recommender Systems}, 
->	author={Chongming Gao and Shijun Li and Wenqiang Lei and Biao Li and Peng Jiang and Jiawei Chen and Xiangnan He and Jiaxin Mao and Tat-Seng Chua},
->	year={2022},
->	journal={arXiv preprint arXiv:2202.10842},
->	primaryClass={cs.IR}
->}
+```
+@article{gao2022kuairec,
+  title={KuaiRec: A Fully-observed Dataset for Recommender Systems}, 
+  author={Chongming Gao and Shijun Li and Wenqiang Lei and Biao Li and Peng Jiang and Jiawei Chen and Xiangnan He and Jiaxin Mao and Tat-Seng Chua},
+  journal={arXiv preprint arXiv:2202.10842},
+  year={2022}
+}
+```
 
 [This repository](https://github.com/xiwenchao/fully_observed_demo) lists the example codes in evaluating conversational recommendation as described in the paper.
 
