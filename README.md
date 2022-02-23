@@ -11,9 +11,15 @@ The following figure illustrates the user-item matrices in traditional datasets 
 With all user's preference known, KuaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
 
 If you use it in your work, please cite our paper:
- [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](#) [![PDF](https://img.shields.io/badge/-PDF-red)](https://chongminggao.github.io/KuaiRec/KuaiRec-%20A%20Fully-observed%20Dataset%20for%20Recommender%20Systems.pdf)
+ [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](https://arxiv.org/abs/2202.10842) [![PDF](https://img.shields.io/badge/-PDF-red)](https://arxiv.org/pdf/2202.10842.pdf)
 
-> arxiv: todo
+>@article{gao2022kuairec,
+>	title={KuaiRec: A Fully-observed Dataset for Recommender Systems}, 
+>	author={Chongming Gao and Shijun Li and Wenqiang Lei and Biao Li and Peng Jiang and Jiawei Chen and Xiangnan He and Jiaxin Mao and Tat-Seng Chua},
+>	year={2022},
+>	journal={arXiv preprint arXiv:2202.10842},
+>	primaryClass={cs.IR}
+>}
 
 [This repository](https://github.com/xiwenchao/fully_observed_demo) lists the example codes in evaluating conversational recommendation as described in the paper.
 
