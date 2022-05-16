@@ -27,6 +27,16 @@ We provide some simple statistics of this dataset [here](https://chongminggao.gi
 
 ---
 
+## News ! ! ! ! !
+
+**2022.05.16: We update the dataset to version 2.0.** We made the following changes:
+
+- We removed the unused video `ID=1225` from all tables having the field `video_id` and reindex the rest videos, i.e., `ID = ID - 1 if ID > 1225`. 
+- We added two tables to enhance the side information for users and videos, respectively. See `4.item_daily_feet.csv` and `5. user_feat.csv` under the data description section for details.
+
+
+
+
 ## Download the data
 
 We provides several options to download this dataset:
@@ -37,7 +47,7 @@ We provides several options to download this dataset:
  wget https://chongming.myds.me:61364/data/KuaiRec.zip --no-check-certificate
  unzip KuaiRec.zip
 ```
-  Option 2. Download manually through the following links:
+  Option 2. Download manually throughs the following links:
 
   - Optional link 1: [Google Drive](https://drive.google.com/file/d/1qe5hOSBxzIuxBb1G_Ih5X-O65QElollE/view?usp=sharing)
 
@@ -65,7 +75,7 @@ The statistics of the small matrix and big matrix in *KuaiRec*.
 |                | #Users | #Items | #Interactions | #Attributes of items | #Users who have friends | Density |
 | -------------- | :----: | :----: |  :----: | :------------------: | :---------------------: | :-----: |
 | *small matrix* | 1,411  | 3,327  | 4,676,570 |          31          | 146 |  99.6%  |
-| *big matrix*   | 7,176  | 10,729 | 12,530,806 |          31          | 472 | 13.4% |
+| *big matrix*   | 7,176  | 10,728 | 12,530,806 |          31          | 472 | 13.4% |
 
 Note that the density of small matrix is 99.6% instead of 100% because some users have explicitly indicated that they would not be willing to receive recommendations from certain authors. I.e., They blocked these videos.
 
@@ -97,3 +107,103 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | ----------- | ------------------------------- | ----- | ------- |
 | video_id    | The ID of the video.            | int64 | 1       |
 | feat        | The list of tags of this video. | list  | [27,9]  |
+
+#### 4. Descriptions of the fields in `item_daily_feet.csv`. (Added on 2020.05.16)
+
+| Field Name:              | Description                                              | Type    | Example                   |
+| ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
+| video_id                 | The ID of the video.                                     | int64   | 3784            |
+| date                     | Date of the statistics of this video.                    | int64   | 20200730            |
+| author_id                | The ID of the author of this video. | int64   | 441            |
+| video_type               | Type of this video (NORMAL or AD).                       | str     | "NORMAL"         |
+| upload_dt                | Upload date of this video.                               | str     | "2020-07-08"         |
+| upload_type              | The upload type of this video.                           | str     | "ShortImport"         |
+| visible_status           | The visible state of this video on the APP now.          | str     | "public"          |
+| video_duration           | The time duration of this duration (in millisecond).     | float64 | 17200.0            |
+| video_width              | The width of this video on the server.                   | int64   | 720            |
+| video_height             | The height of this video on the server. | int64   | 1280            |
+| music_id                 | Background music ID of this video. | int64   | 989206467            |
+| video_tag_id             | The ID of tag of this video. | int64   | 2522            |
+| video_tag_name           | The name of tag of this video. | string  | "祝福"         |
+| show_cnt                 | The number of shows of this video **within this day (the same with all following fields)** | int64   | 7716            |
+| show_user_num            | The number of users who received the recommendation of this video. | int64   | 5256            |
+| play_cnt                 | The number of plays. | int64   | 7701            |
+| play_user_num            | The number of users who plays this video. | int64   | 5034            |
+| play_duration            | The total time duration of playing this video (in millisecond). | int64   | 138333346            |
+| complete_play_cnt        | The number of complete plays. *complete play*: finishing playing the whole video, i.e., `#(play_duration >= video_duration)`. | int64   | 3446            |
+| complete_play_user_num   | The number of users who perform the *complete play*. | int64   | 2033            |
+| valid_play_cnt           | *valid play*: `play_duration >= video_duration if video_duration <= 7s`, or `play_duration > 7 if video_duration > 7s`. | int64   | 5099            |
+| valid_play_user_num      | The number of users who perform the *complete play*. | int64   | 3195            |
+| long_time_play_cnt       | *long time play*: `play_duration >= video_duration if video_duration <= 18s`, or `play_duration >=18 if video_duration > 18s`. | int64   | 3299            |
+| long_time_play_user_num  | The number of users who perform the *long time play*. | int64   | 1940            |
+| short_time_play_cnt      | *short time play*: `play_duration < min(3s, video_duration)`. | int64   | 1538            |
+| short_time_play_user_num | The number of users who perform the *short time play*. | int64   | 1190            |
+| play_progress            | The average video playing ratio (`=play_duration/video_duration`) | int64   | 0.579695            |
+| comment_stay_duration    | Total time of staying in the comments section | int64   | 467865            |
+| like_cnt                 | Total likes | int64   | 659            |
+| like_user_num            | The number of users who hit the "like" button. | int64   | 657            |
+| click_like_cnt           | The number of the "like" resulted from double click | int64   | 496            |
+| double_click_cnt         | The number of users who double click the video. | int64   | 163            |
+| cancel_like_cnt          | The number of likes that are cancelled by users. | int64   | 15            |
+| cancel_like_user_num     | The number of users who cancel their like. | int64   | 15            |
+| comment_cnt              | The number of comments within this day. | int64   | 13            |
+| comment_user_num         | The number of users who comment this video. | int64   | 12            |
+| direct_comment_cnt       | The number of direct comments (depth=1). | int64   | 13            |
+| reply_comment_cnt        | The number of reply comments (depth>1). | int64   | 0            |
+| delete_comment_cnt       | The number of deleted comments. | int64   | 0            |
+| delete_comment_user_num  | The number of users who delete their comments. | int64   | 0            |
+| comment_like_cnt         | The number of comment likes. | int64   | 2            |
+| comment_like_user_num    | The number of users who like the comments. | int64   | 2            |
+| follow_cnt               | The number of increased follows from this video. | int64   | 151            |
+| follow_user_num          | The number of users who follow the author of this video due to this video. | int64   | 151            |
+| cancel_follow_cnt        | The number of decreased follows from this video. | int64   | 0            |
+| cancel_follow_user_num   | The number of users who cancel their following of the author of this video due to this video. | int64   | 0            |
+| share_cnt                | The times of sharing this video. | int64   | 1            |
+| share_user_num           | The number of users who share this video. | int64   | 1            |
+| download_cnt             | The times of downloading this video. | int64   | 2            |
+| download_user_num        | The number of users who download this video. | int64   | 2            |
+| report_cnt               | The times of reporting this video. | int64   | 0            |
+| report_user_num          | The number of users who report this video.                   | int64   | 0            |
+| reduce_similar_cnt       | The times of reducing similar content of this video. | int64   | 2            |
+| reduce_similar_user_num  | The number of users who choose to reduce similar content of this video. | int64   | 2            |
+| collect_cnt              | The times of adding this video to favorite videos. | int64   | 0            |
+| collect_user_num         | The number of users who add this video to their favorite videos. | int64   | 0            |
+| cancel_collect_cnt       | The times of removing this video from favorite videos. | int64   | 0            |
+| cancel_collect_user_num  | The number of users who remove this video from their favorite videos | int64   | 0            |
+
+
+#### 5. Descriptions of the fields in `user_feat.csv` (Added on 2020.05.16)
+
+| Field Name:              | Description                                              | Type    | Example                   |
+| ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
+| user_id                  | The ID of the user.                                      | int64    |           0    |
+| user_active_degree       | In the set of {'high_active', 'full_active', 'middle_active', 'UNKNOWN'}. | str    |  "high_active"  |
+| is_lowactive_period      | Is this user in its low active period | int64    |           0    |
+| is_live_streamer         | Is this user a live streamer？ | int64    |           0    |
+| is_video_author          | Has this user uploaded any video？ | int64    |           0    |
+| follow_user_num          | The number of users that this user follows. | int64    |           5    |
+| follow_user_num_range    | The range of the number of users that this user follows. | str    |     "(0,10]"  |
+| fans_user_num            | The number of the fans of this user. | int64    |           0    |
+| fans_user_num_range      | The range of the number of fans of this user. | str    |           "0"  |
+| friend_user_num          | The number of friends that this user has. | int64    |           0    |
+| friend_user_num_range    | The range of the number of friends that this user has. | str    |           "0"  |
+| register_days            | The days since this user has registered. | int64    |         107    |
+| register_days_range      | The range of the registered days. | str    |       "61-90"  |
+| onehot_feat0             | The encrypted features of the user. Each value indicate the position of "1" in the one-hot vector. | int64    |           0    |
+| onehot_feat1             |                                                          | int64    |           1    |
+| onehot_feat2             |                                                          | int64    |          17    |
+| onehot_feat3             |                                                          | int64    |         638    |
+| onehot_feat4             |                                                          | int64    |         2    |
+| onehot_feat5             |                                                          | int64    |           0    |
+| onehot_feat6             |                                                          | int64    |           1    |
+| onehot_feat7             |                                                          | int64    |           6    |
+| onehot_feat8             |                                                          | int64    |         184    |
+| onehot_feat9             |                                                          | int64    |           6    |
+| onehot_feat10            |                                                          | int64    |           3    |
+| onehot_feat11            |                                                          | int64    |           0    |
+| onehot_feat12            |                                                          | int64    |           0    |
+| onehot_feat13            |                                                          | int64    |           0    |
+| onehot_feat14            |                                                          | int64    |           0    |
+| onehot_feat15            |                                                          | int64    |           0    |
+| onehot_feat16            |                                                          | int64    |           0    |
+| onehot_feat17            |                                                          | int64    |           0    |
