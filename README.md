@@ -183,28 +183,28 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | is_live_streamer         | Is this user a live streamer？ | int64    |           0    |
 | is_video_author          | Has this user uploaded any video？ | int64    |           0    |
 | follow_user_num          | The number of users that this user follows. | int64    |           5    |
-| follow_user_num_range    | The range of the number of users that this user follows. | str    |     "(0,10]"  |
+| follow_user_num_range    | The range of the number of users that this user follows. In the set of {'0', '(0,10]', '(10,50]', '(100,150]', '(150,250]', '(250,500]', '(50,100]', '500+'} | str    |     "(0,10]"  |
 | fans_user_num            | The number of the fans of this user. | int64    |           0    |
-| fans_user_num_range      | The range of the number of fans of this user. | str    |           "0"  |
+| fans_user_num_range      | The range of the number of fans of this user. In the set of {'0', '[1,10)', '[10,100)', '[100,1k)', '[1k,5k)',  '[5k,1w)', '[1w,10w)'} | str    |           "0"  |
 | friend_user_num          | The number of friends that this user has. | int64    |           0    |
-| friend_user_num_range    | The range of the number of friends that this user has. | str    |           "0"  |
+| friend_user_num_range    | The range of the number of friends that this user has.  In the set of {'0', '[1,5)', '[5,30)', '[30,60)', '[60,120)', '[120,250)', '250+'} | str    |           "0"  |
 | register_days            | The days since this user has registered. | int64    |         107    |
-| register_days_range      | The range of the registered days. | str    |       "61-90"  |
-| onehot_feat0             | The encrypted features of the user. Each value indicate the position of "1" in the one-hot vector. | int64    |           0    |
-| onehot_feat1             |                                                          | int64    |           1    |
-| onehot_feat2             |                                                          | int64    |          17    |
-| onehot_feat3             |                                                          | int64    |         638    |
-| onehot_feat4             |                                                          | int64    |         2    |
-| onehot_feat5             |                                                          | int64    |           0    |
-| onehot_feat6             |                                                          | int64    |           1    |
-| onehot_feat7             |                                                          | int64    |           6    |
-| onehot_feat8             |                                                          | int64    |         184    |
-| onehot_feat9             |                                                          | int64    |           6    |
-| onehot_feat10            |                                                          | int64    |           3    |
-| onehot_feat11            |                                                          | int64    |           0    |
-| onehot_feat12            |                                                          | int64    |           0    |
-| onehot_feat13            |                                                          | int64    |           0    |
-| onehot_feat14            |                                                          | int64    |           0    |
-| onehot_feat15            |                                                          | int64    |           0    |
-| onehot_feat16            |                                                          | int64    |           0    |
-| onehot_feat17            |                                                          | int64    |           0    |
+| register_days_range      | The range of the registered days. In the set of {'15-30', '31-60', '61-90', '91-180', '181-365', '366-730', '730+'}. | str    |       "61-90"  |
+| onehot_feat0             | An encrypted feature of the user. Each value indicate the position of "1" in the one-hot vector. Range: {0,1} | int64    |           0    |
+| onehot_feat1             | An encrypted feature. Range: {0, 1, ..., 7} | int64    |           1    |
+| onehot_feat2             | An encrypted feature. Range: {0, 1, ..., 29} | int64    |          17    |
+| onehot_feat3             | An encrypted feature. Range: {0, 1, ..., 1075} | int64    |         638    |
+| onehot_feat4             | An encrypted feature. Range: {0, 1, ..., 11} | int64    |         2    |
+| onehot_feat5             | An encrypted feature. Range: {0, 1, ..., 9} | int64    |           0    |
+| onehot_feat6             | An encrypted feature. Range: {0, 1, 2} | int64    |           1    |
+| onehot_feat7             | An encrypted feature. Range: {0, 1, ..., 46} | int64    |           6    |
+| onehot_feat8             | An encrypted feature. Range: {0, 1, ..., 339} | int64    |         184    |
+| onehot_feat9             | An encrypted feature. Range: {0, 1, ..., 6} | int64    |           6    |
+| onehot_feat10            | An encrypted feature. Range: {0, 1, ..., 4} | int64    |           3    |
+| onehot_feat11            | An encrypted feature. Range: {0, 1, ..., 2} | int64    |           0    |
+| onehot_feat12            | An encrypted feature. Range: {0, 1} | int64    |           0    |
+| onehot_feat13            | An encrypted feature. Range: {0, 1} | int64    |           0    |
+| onehot_feat14            | An encrypted feature. Range: {0, 1} | int64    |           0    |
+| onehot_feat15            | An encrypted feature. Range: {0, 1} | int64    |           0    |
+| onehot_feat16            | An encrypted feature. Range: {0, 1} | int64    |           0    |
+| onehot_feat17            | An encrypted feature. Range: {0, 1} | int64    |           0    |
