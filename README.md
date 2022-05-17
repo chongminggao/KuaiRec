@@ -109,7 +109,7 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | video_id    | The ID of the video.            | int64 | 1       |
 | feat        | The list of tags of this video. | list  | [27,9]  |
 
-#### 4. Descriptions of the fields in `item_daily_feet.csv`. (Added on 2020.05.16)
+#### 4. Descriptions of the fields in `item_daily_feet.csv`. (Added on 2022.05.16)
 
 | Field Name:              | Description                                              | Type    | Example                   |
 | ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
@@ -173,7 +173,7 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | cancel_collect_user_num  | The number of users who remove this video from their favorite videos | int64   | 0            |
 
 
-#### 5. Descriptions of the fields in `user_feat.csv` (Added on 2020.05.16)
+#### 5. Descriptions of the fields in `user_feat.csv` (Added on 2022.05.16)
 
 | Field Name:              | Description                                              | Type    | Example                   |
 | ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
