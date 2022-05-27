@@ -14674,14 +14674,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">social_network</span><span class="p">[</span><span class="s2">&quot;friend_list&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">social_network</span><span class="p">[</span><span class="s2">&quot;friend_list&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading item features...&quot;</span><span class="p">)</span>
-<span class="n">item_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">rootpath</span> <span class="o">+</span> <span class="s2">&quot;data/item_feat.csv&quot;</span><span class="p">)</span>
-<span class="n">item_feat</span><span class="p">[</span><span class="s2">&quot;feat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item_feat</span><span class="p">[</span><span class="s2">&quot;feat&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
+<span class="n">item_categories</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">rootpath</span> <span class="o">+</span> <span class="s2">&quot;data/item_categories.csv&quot;</span><span class="p">)</span>
+<span class="n">item_categories</span><span class="p">[</span><span class="s2">&quot;feat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item_categories</span><span class="p">[</span><span class="s2">&quot;feat&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading user features...&quot;</span><span class="p">)</span>
-<span class="n">user_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/user_feat.csv&quot;</span><span class="p">)</span>
+<span class="n">user_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/user_features.csv&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loading items&#39; daily features...&quot;</span><span class="p">)</span>
-<span class="n">item_daily_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/item_daily_feat.csv&quot;</span><span class="p">)</span>
+<span class="n">item_daily_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/item_daily_features.csv&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All data loaded.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15009,7 +15009,7 @@ All data loaded.
     <tr>
       <th>2</th>
       <td>14</td>
-      <td>3650</td>
+      <td>3649</td>
       <td>22422</td>
       <td>10867</td>
       <td>2020-07-05 05:29:09.479</td>
@@ -15020,7 +15020,7 @@ All data loaded.
     <tr>
       <th>3</th>
       <td>14</td>
-      <td>5263</td>
+      <td>5262</td>
       <td>4479</td>
       <td>7908</td>
       <td>2020-07-05 05:30:43.285</td>
@@ -15031,7 +15031,7 @@ All data loaded.
     <tr>
       <th>4</th>
       <td>14</td>
-      <td>8235</td>
+      <td>8234</td>
       <td>4602</td>
       <td>11000</td>
       <td>2020-07-05 05:35:43.459</td>
@@ -15053,7 +15053,7 @@ All data loaded.
     <tr>
       <th>4676565</th>
       <td>7162</td>
-      <td>2268</td>
+      <td>2267</td>
       <td>11908</td>
       <td>5467</td>
       <td>NaN</td>
@@ -15064,7 +15064,7 @@ All data loaded.
     <tr>
       <th>4676566</th>
       <td>7162</td>
-      <td>2066</td>
+      <td>2065</td>
       <td>11919</td>
       <td>6067</td>
       <td>NaN</td>
@@ -15075,7 +15075,7 @@ All data loaded.
     <tr>
       <th>4676567</th>
       <td>7162</td>
-      <td>1297</td>
+      <td>1296</td>
       <td>16690</td>
       <td>19870</td>
       <td>NaN</td>
@@ -15086,7 +15086,7 @@ All data loaded.
     <tr>
       <th>4676568</th>
       <td>7162</td>
-      <td>4823</td>
+      <td>4822</td>
       <td>11862</td>
       <td>24400</td>
       <td>NaN</td>
@@ -15097,7 +15097,7 @@ All data loaded.
     <tr>
       <th>4676569</th>
       <td>7162</td>
-      <td>4365</td>
+      <td>4364</td>
       <td>2182</td>
       <td>19367</td>
       <td>NaN</td>
@@ -15125,7 +15125,7 @@ All data loaded.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item_feat</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item_categories</span>
 </pre></div>
 
      </div>
@@ -15367,7 +15367,7 @@ All data loaded.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item_daily_feat</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">item_daily_features</span>
 </pre></div>
 
      </div>
@@ -15716,7 +15716,7 @@ All data loaded.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_feat</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_features</span>
 </pre></div>
 
      </div>
@@ -16248,7 +16248,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_feat</span> <span class="o">=</span> <span class="n">item_feat</span><span class="o">.</span><span class="n">feat</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_feat</span> <span class="o">=</span> <span class="n">item_categories</span><span class="o">.</span><span class="n">feat</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">num_feat</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 <span class="n">visual_statistics_discrete</span><span class="p">(</span><span class="n">num_feat</span><span class="p">,</span> <span class="s2">&quot;number of tags&quot;</span><span class="p">)</span>
 </pre></div>
@@ -16330,7 +16330,7 @@ jp-needs-light-background
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 
-<span class="n">cnt</span> <span class="o">=</span> <span class="n">item_feat</span><span class="o">.</span><span class="n">feat</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">)</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="n">item_categories</span><span class="o">.</span><span class="n">feat</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">)</span>
 <span class="n">cnt_all</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">cnt</span><span class="p">:</span>
     <span class="n">cnt_all</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
