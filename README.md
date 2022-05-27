@@ -32,8 +32,8 @@ We provide some simple statistics of this dataset [here](https://chongminggao.gi
 
 **2022.05.16: We update the dataset to version 2.0.** We made the following changes:
 
-- We removed the unused video `ID=1225` from all tables having the field `video_id` and reindex the rest videos, i.e., `ID = ID - 1 if ID > 1225`. 
-- We added two tables to enhance the side information for users and videos, respectively. See `4.item_daily_feet.csv` and `5. user_feat.csv` under the data description section for details.
+- We removed the unused video `ID=1225` from all tables having the field `video_id` and re-index the rest videos, i.e., `ID = ID - 1 if ID > 1225`. 
+- We added two tables to enhance the side information for users and videos, respectively. See `4.item_daily_features.csv` and `5. user_features.csv` under the data description section for details.
 
 
 
@@ -60,7 +60,7 @@ The script `loaddata.py` provides a simple way to load the data via Pandas in Py
 
 ## Data Descriptions
 
-*KuaiRec* contains millions of user-item interactions as well as the side information include the item categorires and social network. Four files are included in the download data: 
+*KuaiRec* contains millions of user-item interactions as well as the side information including the item categories and a social network. Six files are included in the download data: 
 
   ```shell
   KuaiRec
@@ -68,6 +68,8 @@ The script `loaddata.py` provides a simple way to load the data via Pandas in Py
   │   ├── big_matrix.csv          
   │   ├── small_matrix.csv
   │   ├── social_network.csv
+  │   ├── user_features.csv
+  │   ├── item_daily_features.csv
   │   └── item_categories.csv
   ```
 
@@ -109,7 +111,7 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | video_id    | The ID of the video.            | int64 | 1       |
 | feat        | The list of tags of this video. | list  | [27,9]  |
 
-#### 4. Descriptions of the fields in `item_daily_feet.csv`. (Added on 2022.05.16)
+#### 4. Descriptions of the fields in `item_daily_features.csv`. (Added on 2022.05.16)
 
 | Field Name:              | Description                                              | Type    | Example                   |
 | ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
@@ -173,7 +175,7 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | cancel_collect_user_num  | The number of users who remove this video from their favorite videos | int64   | 0            |
 
 
-#### 5. Descriptions of the fields in `user_feat.csv` (Added on 2022.05.16)
+#### 5. Descriptions of the fields in `user_features.csv` (Added on 2022.05.16)
 
 | Field Name:              | Description                                              | Type    | Example                   |
 | ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
