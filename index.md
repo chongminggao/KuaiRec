@@ -26,7 +26,7 @@ We provide some simple statistics of this dataset [here](https://chongminggao.gi
 
 ---
 
-## News ! ! ! ! !
+## News!
 
 **2022.05.16: We update the dataset to version 2.0.** We made the following changes:
 
