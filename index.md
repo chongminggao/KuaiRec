@@ -2,6 +2,8 @@
 
 *KuaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kuaishou](https://www.kuaishou.com/cn). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and then left feedback. 
 
+Another related **open-sourced** dataset is ![KuaiRand](https://kuairand.com/).
+
 The following figure illustrates the user-item matrices in traditional datasets and *KuaiRec*.
 
 ![kuaidata](https://cdn.chongminggao.top/figure/kuairec-long.png)
@@ -13,15 +15,16 @@ If you use it in your work, please cite our paper:
 
 ```
 @inproceedings{gao2022kuairec,
-  author = {Chongming Gao and Shijun Li and Wenqiang Lei and Jiawei Chen and Biao Li and Peng Jiang and Xiangnan He and Jiaxin Mao and Tat-Seng Chua},
-  title = {KuaiRec: A Fully-observed Dataset and Insights for Evaluating Recommender Systems},
-  year = {2022},
+  author = {Gao, Chongming and Li, Shijun and Lei, Wenqiang and Chen, Jiawei and Li, Biao and Jiang, Peng and He, Xiangnan and Mao, Jiaxin and Chua, Tat-Seng},
+  title = {KuaiRec: A Fully-Observed Dataset and Insights for Evaluating Recommender Systems},
+  booktitle = {Proceedings of the 31st ACM International Conference on Information \& Knowledge Management},
+  series = {CIKM '22},
+  location = {Atlanta, GA, USA},
   url = {https://doi.org/10.1145/3511808.3557220},
   doi = {10.1145/3511808.3557220},
-  booktitle = {Proceedings of the 31st ACM International Conference on Information and Knowledge Management},
   numpages = {11},
-  location = {Atlanta, GA, USA},
-  series = {CIKM '22}
+  year = {2022},
+  pages = {540–550}
 }
 ```
 
