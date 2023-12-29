@@ -4,11 +4,13 @@
 
 *KuaiRec* is a real-world dataset collected from the recommendation logs of the video-sharing mobile app [Kuaishou](https://www.kuaishou.com/cn). For now, it is the first dataset that contains a fully observed user-item interaction matrix. For the term "fully observed", we mean there are almost no missing values in the user-item matrix,  i.e., each user has viewed each video and then left feedback. 
 
+Other related **open-sourced** datasets are **[KuaiRand](https://kuairand.com/)** and **[KuaiSAR](https://kuaisar.github.io/)**.
+
 The following figure illustrates the user-item matrices in traditional datasets and *KuaiRec*.
 
 ![kuaidata](https://cdn.chongminggao.top/figure/kuairec-long.png)
 
-With all user's preferences known, KuaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, or reinforcement learning (RL) and off-policy evaluation (OPE) for recommendation.
+With all user preferences known, KuaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, reinforcement learning (RL), and off-policy evaluation (OPE) for recommendation.
 
 If you use it in your work, please cite our paper:
  [![LINK](https://img.shields.io/badge/-Paper%20Link-lightgrey)](https://arxiv.org/abs/2202.10842) [![PDF](https://img.shields.io/badge/-PDF-red)](https://arxiv.org/pdf/2202.10842.pdf)
