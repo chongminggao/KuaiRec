@@ -227,15 +227,17 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 
 
 #### 6. Descriptions of the caption and category fields in `kuairec_caption_category.csv` (Added on 2024.06.02)
-| Field Name:                | Description                                         | Type  | Example                                                                                                                                           |
-| -------------------------- | --------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| video_id                   | The ID of the video                                 | int64 | 10                                                                                                                                                |
-| manual_cover_text          | 封面文字                                            | str   | "高品质裤子并不贵."                                                                                                                               |
-| caption                    | 简介标题                                            | str   | "辰辰是生产高品质裤子的厂家 好的裤子成本并不高 关注我吧 每晚七点 直播间看款式 听价格一件也是出厂价🔥#感谢快手我要上热门 #作品推广 #商家号战疫行动" |
-| topic_tag                  | Tags of the topics of this video (added by authors) | str   | "[作品推广,商家号战疫行动,感谢快手我要上热门]"                                                                                                    |
-| first_level_category_id    | First-level category ID                             | int64 | 5                                                                                                                                                 |
-| first_level_category_name  | First-level category name                           | str   | "时尚"                                                                                                                                            |
-| second_level_category_id   | Second-level category ID                            | int64 | 737                                                                                                                                               |
-| second_level_category_name | Second-level category name                          | str   | "营销售卖"                                                                                                                                        |
-| third_level_category_id    | Thrid-level category ID                             | int64 | 2596                                                                                                                                              |
-| third_level_category_name  | Third-level category name                           | str   | "女装"                                                                                                                                            |
+
+
+| Field Name:                | Description                                            | Type  | Example                                                      |
+| -------------------------- | ------------------------------------------------------ | ----- | ------------------------------------------------------------ |
+| video_id                   | The ID of the video                                    | int64 | 2418                                                         |
+| manual_cover_text          | 封面文字 (added by its author)                         | str   | "被小可爱发现了"                                             |
+| caption                    | 简介标题 (added by its author)                         | str   | "这是什么狗狗，这么可爱真的可以这么遛吗？#喜欢的双击加关注 #直播 #博美俊介 #萌宠驾到" |
+| topic_tag                  | Tags of the topics of this video (added by its author) | str   | "[博美俊介,喜欢的双击加关注,直播,萌宠驾到]"                  |
+| first_level_category_id    | First-level category ID                                | int64 | 17                                                           |
+| first_level_category_name  | First-level category name                              | str   | "宠物"                                                       |
+| second_level_category_id   | Second-level category ID                               | int64 | 233                                                          |
+| second_level_category_name | Second-level category name                             | str   | "宠物日常记录"                                               |
+| third_level_category_id    | Thrid-level category ID                                | int64 | 1169                                                         |
+| third_level_category_name  | Third-level category name                              | str   | "宠物狗"                                                     |
