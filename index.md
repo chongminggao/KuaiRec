@@ -225,6 +225,8 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 
 
 #### 6. Descriptions of the caption and category fields in `kuairec_caption_category.csv` (Added on 2024.06.02)
+
+
 | Field Name:                | Description                                         | Type  | Example                                                      |
 | -------------------------- | --------------------------------------------------- | ----- | ------------------------------------------------------------ |
 | video_id                   | The ID of the video                                 | int64 | 10                                                           |
