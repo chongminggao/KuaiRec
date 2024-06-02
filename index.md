@@ -36,6 +36,11 @@ We provide some simple statistics of this dataset [here](https://kuairec.com/Sta
 
 ## News!
 
+**2024.06.02: To facilitate the application of large language models (LLM) in recommendation systems, we collect caption information and category information for all videos and presented them in text format!** 
+
+- The corresponding caption and category information can be downloaded here: [kuairec_caption_category.csv](https://github.com/chongminggao/KuaiRec/blob/main/kuairec_caption_category.csv). Additionally, we have packaged them into the `KuaiRec.zip` file, which can be downloaded from the download section below.  
+- The descriptions of the caption and category information are available [here](#6-descriptions-of-the-caption-and-category-fields-in-kuairec_caption_categorycsv-added-on-20240602).
+
 **2022.05.16: We update the dataset to version 2.0.** We made the following changes:
 
 - We removed the unused video `ID=1225` from all tables having the field `video_id` and re-indexed the rest videos, i.e., `ID = ID - 1 if ID > 1225`. 
@@ -77,6 +82,7 @@ The script `loaddata.py` provides a simple way to load the data via Pandas in Py
   │   ├── user_features.csv
   │   ├── item_daily_features.csv
   │   └── item_categories.csv
+  │   └── kuairec_caption_category.csv
   ```
 
 The statistics of the small matrix and big matrix in *KuaiRec*.
@@ -216,3 +222,18 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | onehot_feat15            | An encrypted feature. Range: {0, 1} | int64    |           0    |
 | onehot_feat16            | An encrypted feature. Range: {0, 1} | int64    |           0    |
 | onehot_feat17            | An encrypted feature. Range: {0, 1} | int64    |           0    |
+
+
+#### 6. Descriptions of the caption and category fields in `kuairec_caption_category.csv` (Added on 2024.06.02)
+| Field Name:                | Description                                         | Type  | Example                                                      |
+| -------------------------- | --------------------------------------------------- | ----- | ------------------------------------------------------------ |
+| video_id                   | The ID of the video                                 | int64 | 10                                                           |
+| manual_cover_text          | 封面文字                                            | str   | "高品质裤子并不贵."                                          |
+| caption                    | 简介标题                                            | str   | "辰辰是生产高品质裤子的厂家 好的裤子成本并不高 关注我吧 每晚七点 直播间看款式 听价格一件也是出厂价🔥#感谢快手我要上热门 #作品推广 #商家号战疫行动" |
+| topic_tag                  | Tags of the topics of this video (added by authors) | str   | "[作品推广,商家号战疫行动,感谢快手我要上热门]"               |
+| first_level_category_id    | First-level category ID                             | int64 | 5                                                            |
+| first_level_category_name  | First-level category name                           | str   | "时尚"                                                       |
+| second_level_category_id   | Second-level category ID                            | int64 | 737                                                          |
+| second_level_category_name | Second-level category name                          | str   | "营销售卖"                                                   |
+| third_level_category_id    | Thrid-level category ID                             | int64 | 2596                                                         |
+| third_level_category_name  | Third-level category name                           | str   | "女装"                                                       |
