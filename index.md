@@ -6,7 +6,7 @@ Other related **open-sourced** datasets are **[KuaiRand](https://kuairand.com/)*
 
 The following figure illustrates the user-item matrices in traditional datasets and *KuaiRec*.
 
-![kuaidata](https://cdn.chongminggao.top/figure/kuairec-long.png)
+![kuaidata](figs/kuairec-long.png)
 
 With all user preferences known, KuaiRec can used in offline evaluation (i.e., offline A/B test) for recommendation models. It can benefit lots of research directions, such as unbiased recommendation, interactive/conversational recommendation, reinforcement learning (RL), and off-policy evaluation (OPE) for recommendation.
 

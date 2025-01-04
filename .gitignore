@@ -2,3 +2,4 @@ data/
 .ipynb_checkpoints/
 get_statistcs_bak.ipynb
 .idea/
+.DS_Store
