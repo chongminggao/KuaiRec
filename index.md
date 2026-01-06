@@ -36,6 +36,15 @@ We provide some simple statistics of this dataset [here](https://kuairec.com/Sta
 
 ## News!
 
+**2026.01.03: To support more fine-grained and in-depth research, we release additional raw features for users and items.**  
+
+- We provide two raw feature files:  
+  - `video_raw_categories_multi.csv` (Raw category annotations)  
+  - `user_features_raw.csv` (Raw user features)  
+- These files preserve the original hierarchical category structure and rich user-side attributes before further processing or encoding, and are suitable for research on taxonomy-aware modeling, user profiling, and representation learning.  
+- The detailed descriptions of these raw features are available [here](#7-descriptions-of-the-fields-in-video_raw_categories_multicsv-raw-category-annotations).
+
+
 **2024.06.02: To facilitate the application of large language models (LLM) in recommendation systems, we collect caption information and category information for all videos and presented them in text format!** 
 
 - The corresponding caption and category information can be downloaded here: [kuairec_caption_category.csv](https://github.com/chongminggao/KuaiRec/blob/main/kuairec_caption_category.csv). Additionally, we have packaged them into the `KuaiRec.zip` file, which can be downloaded from the download section below.  
@@ -55,15 +64,35 @@ We provide several options to download this dataset:
 
   Option 1. Download via the "wget" command.
 
+`KuaiRec.zip`:
+
 ```shell
- wget https://nas.chongminggao.top:4430/datasets/KuaiRec.zip --no-check-certificate
+ wget https://zenodo.org/records/18164998/files/KuaiRec.zip
  unzip KuaiRec.zip
 ```
+
+`kuairec_caption_category.csv`:
+
+```shell
+ wget https://zenodo.org/records/18164998/files/kuairec_caption_category.csv
+```
+
+`video_raw_categories_multi.csv`:
+
+```shell
+ wget https://zenodo.org/records/18164998/files/video_raw_categories_multi.csv
+```
+
+`user_features_raw.csv`:
+
+```shell
+ wget https://zenodo.org/records/18164998/files/user_features_raw.csv
+```
+
+
   Option 2. Download manually through the following links:
 
-  - Optional link 1: [Google Drive](https://drive.google.com/file/d/1qe5hOSBxzIuxBb1G_Ih5X-O65QElollE/view?usp=sharing)
-
-  - Optional link 2: [USTC Drive (中科大)](https://rec.ustc.edu.cn/share/00cc9940-aa72-11ec-aa7d-d38daca349cb)
+  - Zenodo link: [Zenodo](https://zenodo.org/records/18164998)
 
 The script `loaddata.py` provides a simple way to load the data via Pandas in Python.
 
@@ -88,9 +117,9 @@ The script `loaddata.py` provides a simple way to load the data via Pandas in Py
 The statistics of the small matrix and big matrix in *KuaiRec*.
 
 |                | #Users | #Items | #Interactions | Density |
-| -------------- | :----: | :----: |  :----:       | :-----: |
-| *small matrix* | 1,411  | 3,327  | 4,676,570     |  99.6%  |
-| *big matrix*   | 7,176  | 10,728 | 12,530,806    |  16.3%  |
+| -------------- | :----: | :----: | :-----------: | :-----: |
+| *small matrix* | 1,411  | 3,327  |   4,676,570   |  99.6%  |
+| *big matrix*   | 7,176  | 10,728 |  12,530,806   |  16.3%  |
 
 Note that the density of the small matrix is 99.6% instead of 100% because some users have explicitly indicated that they would not be willing to receive recommendations from certain authors. I.e., They blocked these videos.
 
@@ -111,9 +140,9 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 
 #### 2. Descriptions of the fields in `social_network.csv`
 
-| Field Name: | Description                                 | Type  | Example     |
-| ----------- | ------------------------------------------- | ----- | ----------- |
-| user_id     | The ID of the user.                         | int64 | 5352        |
+| Field Name: | Description                                  | Type  | Example     |
+| ----------- | -------------------------------------------- | ----- | ----------- |
+| user_id     | The ID of the user.                          | int64 | 5352        |
 | friend_list | The list of IDs of the friends of this user. | list  | [4202,7126] |
 
 #### 3. Descriptions of the fields in `item_categories.csv`. 
@@ -125,103 +154,103 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 
 #### 4. Descriptions of the fields in `item_daily_features.csv`. (Added on 2022.05.16)
 
-| Field Name:              | Description                                              | Type    | Example                   |
-| ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
-| video_id                 | The ID of the video.                                     | int64   | 3784            |
-| date                     | Date of the statistics of this video.                    | int64   | 20200730            |
-| author_id                | The ID of the author of this video. | int64   | 441            |
-| video_type               | Type of this video (NORMAL or AD).                       | str     | "NORMAL"         |
-| upload_dt                | Upload date of this video.                               | str     | "2020-07-08"         |
-| upload_type              | The upload type of this video.                           | str     | "ShortImport"         |
-| visible_status           | The visible state of this video on the APP now.          | str     | "public"          |
-| video_duration           | The time duration of this duration (in milliseconds).     | float64 | 17200.0            |
-| video_width              | The width of this video on the server.                   | int64   | 720            |
-| video_height             | The height of this video on the server. | int64   | 1280            |
-| music_id                 | Background music ID of this video. | int64   | 989206467            |
-| video_tag_id             | The ID of the tag of this video. | int64   | 2522            |
-| video_tag_name           | The name of the tag of this video. | string  | "祝福"         |
-| show_cnt                 | The number of shows of this video **within this day (the same with all following fields)** | int64   | 7716            |
-| show_user_num            | The number of users who received the recommendation of this video. | int64   | 5256            |
-| play_cnt                 | The number of plays. | int64   | 7701            |
-| play_user_num            | The number of users who play this video. | int64   | 5034            |
-| play_duration            | The total time duration of playing this video (in milliseconds). | int64   | 138333346            |
-| complete_play_cnt        | The number of complete plays. *complete play*: finishing playing the whole video, i.e., `#(play_duration >= video_duration)`. | int64   | 3446            |
-| complete_play_user_num   | The number of users who perform the *complete play*. | int64   | 2033            |
-| valid_play_cnt           | *valid play*: `play_duration >= video_duration if video_duration <= 7s`, or `play_duration > 7 if video_duration > 7s`. | int64   | 5099            |
-| valid_play_user_num      | The number of users who perform the *complete play*. | int64   | 3195            |
-| long_time_play_cnt       | *long time play*: `play_duration >= video_duration if video_duration <= 18s`, or `play_duration >=18 if video_duration > 18s`. | int64   | 3299            |
-| long_time_play_user_num  | The number of users who perform the *long time play*. | int64   | 1940            |
-| short_time_play_cnt      | *short time play*: `play_duration < min(3s, video_duration)`. | int64   | 1538            |
-| short_time_play_user_num | The number of users who perform the *short time play*. | int64   | 1190            |
-| play_progress            | The average video playing ratio (`=play_duration/video_duration`) | int64   | 0.579695            |
-| comment_stay_duration    | Total time of staying in the comments section | int64   | 467865            |
-| like_cnt                 | Total likes | int64   | 659            |
-| like_user_num            | The number of users who hit the "like" button. | int64   | 657            |
-| click_like_cnt           | The number of the "like" resulted from double click | int64   | 496            |
-| double_click_cnt         | The number of users who double-click the video. | int64   | 163            |
-| cancel_like_cnt          | The number of likes that are canceled by users. | int64   | 15            |
-| cancel_like_user_num     | The number of users who cancel their likes. | int64   | 15            |
-| comment_cnt              | The number of comments within this day. | int64   | 13            |
-| comment_user_num         | The number of users who comment on this video. | int64   | 12            |
-| direct_comment_cnt       | The number of direct comments (depth=1). | int64   | 13            |
-| reply_comment_cnt        | The number of reply comments (depth>1). | int64   | 0            |
-| delete_comment_cnt       | The number of deleted comments. | int64   | 0            |
-| delete_comment_user_num  | The number of users who delete their comments. | int64   | 0            |
-| comment_like_cnt         | The number of comment likes. | int64   | 2            |
-| comment_like_user_num    | The number of users who like the comments. | int64   | 2            |
-| follow_cnt               | The number of increased follows from this video. | int64   | 151            |
-| follow_user_num          | The number of users who follow the author of this video due to this video. | int64   | 151            |
-| cancel_follow_cnt        | The number of decreased follows from this video. | int64   | 0            |
-| cancel_follow_user_num   | The number of users who cancel their following of the author of this video due to this video. | int64   | 0            |
-| share_cnt                | The times of sharing this video. | int64   | 1            |
-| share_user_num           | The number of users who share this video. | int64   | 1            |
-| download_cnt             | The times of downloading this video. | int64   | 2            |
-| download_user_num        | The number of users who download this video. | int64   | 2            |
-| report_cnt               | The times of reporting this video. | int64   | 0            |
-| report_user_num          | The number of users who report this video.                   | int64   | 0            |
-| reduce_similar_cnt       | The times of reducing similar content of this video. | int64   | 2            |
-| reduce_similar_user_num  | The number of users who choose to reduce similar content of this video. | int64   | 2            |
-| collect_cnt              | The times of adding this video to favorite videos. | int64   | 0            |
-| collect_user_num         | The number of users who add this video to their favorite videos. | int64   | 0            |
-| cancel_collect_cnt       | The times of removing this video from favorite videos. | int64   | 0            |
-| cancel_collect_user_num  | The number of users who remove this video from their favorite videos | int64   | 0            |
+| Field Name:              | Description                                                                                                                    | Type    | Example       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------- | ------------- |
+| video_id                 | The ID of the video.                                                                                                           | int64   | 3784          |
+| date                     | Date of the statistics of this video.                                                                                          | int64   | 20200730      |
+| author_id                | The ID of the author of this video.                                                                                            | int64   | 441           |
+| video_type               | Type of this video (NORMAL or AD).                                                                                             | str     | "NORMAL"      |
+| upload_dt                | Upload date of this video.                                                                                                     | str     | "2020-07-08"  |
+| upload_type              | The upload type of this video.                                                                                                 | str     | "ShortImport" |
+| visible_status           | The visible state of this video on the APP now.                                                                                | str     | "public"      |
+| video_duration           | The time duration of this duration (in milliseconds).                                                                          | float64 | 17200.0       |
+| video_width              | The width of this video on the server.                                                                                         | int64   | 720           |
+| video_height             | The height of this video on the server.                                                                                        | int64   | 1280          |
+| music_id                 | Background music ID of this video.                                                                                             | int64   | 989206467     |
+| video_tag_id             | The ID of the tag of this video.                                                                                               | int64   | 2522          |
+| video_tag_name           | The name of the tag of this video.                                                                                             | string  | "祝福"        |
+| show_cnt                 | The number of shows of this video **within this day (the same with all following fields)**                                     | int64   | 7716          |
+| show_user_num            | The number of users who received the recommendation of this video.                                                             | int64   | 5256          |
+| play_cnt                 | The number of plays.                                                                                                           | int64   | 7701          |
+| play_user_num            | The number of users who play this video.                                                                                       | int64   | 5034          |
+| play_duration            | The total time duration of playing this video (in milliseconds).                                                               | int64   | 138333346     |
+| complete_play_cnt        | The number of complete plays. *complete play*: finishing playing the whole video, i.e., `#(play_duration >= video_duration)`.  | int64   | 3446          |
+| complete_play_user_num   | The number of users who perform the *complete play*.                                                                           | int64   | 2033          |
+| valid_play_cnt           | *valid play*: `play_duration >= video_duration if video_duration <= 7s`, or `play_duration > 7 if video_duration > 7s`.        | int64   | 5099          |
+| valid_play_user_num      | The number of users who perform the *complete play*.                                                                           | int64   | 3195          |
+| long_time_play_cnt       | *long time play*: `play_duration >= video_duration if video_duration <= 18s`, or `play_duration >=18 if video_duration > 18s`. | int64   | 3299          |
+| long_time_play_user_num  | The number of users who perform the *long time play*.                                                                          | int64   | 1940          |
+| short_time_play_cnt      | *short time play*: `play_duration < min(3s, video_duration)`.                                                                  | int64   | 1538          |
+| short_time_play_user_num | The number of users who perform the *short time play*.                                                                         | int64   | 1190          |
+| play_progress            | The average video playing ratio (`=play_duration/video_duration`)                                                              | int64   | 0.579695      |
+| comment_stay_duration    | Total time of staying in the comments section                                                                                  | int64   | 467865        |
+| like_cnt                 | Total likes                                                                                                                    | int64   | 659           |
+| like_user_num            | The number of users who hit the "like" button.                                                                                 | int64   | 657           |
+| click_like_cnt           | The number of the "like" resulted from double click                                                                            | int64   | 496           |
+| double_click_cnt         | The number of users who double-click the video.                                                                                | int64   | 163           |
+| cancel_like_cnt          | The number of likes that are canceled by users.                                                                                | int64   | 15            |
+| cancel_like_user_num     | The number of users who cancel their likes.                                                                                    | int64   | 15            |
+| comment_cnt              | The number of comments within this day.                                                                                        | int64   | 13            |
+| comment_user_num         | The number of users who comment on this video.                                                                                 | int64   | 12            |
+| direct_comment_cnt       | The number of direct comments (depth=1).                                                                                       | int64   | 13            |
+| reply_comment_cnt        | The number of reply comments (depth>1).                                                                                        | int64   | 0             |
+| delete_comment_cnt       | The number of deleted comments.                                                                                                | int64   | 0             |
+| delete_comment_user_num  | The number of users who delete their comments.                                                                                 | int64   | 0             |
+| comment_like_cnt         | The number of comment likes.                                                                                                   | int64   | 2             |
+| comment_like_user_num    | The number of users who like the comments.                                                                                     | int64   | 2             |
+| follow_cnt               | The number of increased follows from this video.                                                                               | int64   | 151           |
+| follow_user_num          | The number of users who follow the author of this video due to this video.                                                     | int64   | 151           |
+| cancel_follow_cnt        | The number of decreased follows from this video.                                                                               | int64   | 0             |
+| cancel_follow_user_num   | The number of users who cancel their following of the author of this video due to this video.                                  | int64   | 0             |
+| share_cnt                | The times of sharing this video.                                                                                               | int64   | 1             |
+| share_user_num           | The number of users who share this video.                                                                                      | int64   | 1             |
+| download_cnt             | The times of downloading this video.                                                                                           | int64   | 2             |
+| download_user_num        | The number of users who download this video.                                                                                   | int64   | 2             |
+| report_cnt               | The times of reporting this video.                                                                                             | int64   | 0             |
+| report_user_num          | The number of users who report this video.                                                                                     | int64   | 0             |
+| reduce_similar_cnt       | The times of reducing similar content of this video.                                                                           | int64   | 2             |
+| reduce_similar_user_num  | The number of users who choose to reduce similar content of this video.                                                        | int64   | 2             |
+| collect_cnt              | The times of adding this video to favorite videos.                                                                             | int64   | 0             |
+| collect_user_num         | The number of users who add this video to their favorite videos.                                                               | int64   | 0             |
+| cancel_collect_cnt       | The times of removing this video from favorite videos.                                                                         | int64   | 0             |
+| cancel_collect_user_num  | The number of users who remove this video from their favorite videos                                                           | int64   | 0             |
 
 
 #### 5. Descriptions of the fields in `user_features.csv` (Added on 2022.05.16)
 
-| Field Name:              | Description                                              | Type    | Example                   |
-| ------------------------ | -------------------------------------------------------- | ------- | ------------------------- |
-| user_id                  | The ID of the user.                                      | int64    |           0    |
-| user_active_degree       | In the set of {'high_active', 'full_active', 'middle_active', 'UNKNOWN'}. | str    |  "high_active"  |
-| is_lowactive_period      | Is this user in its low active period | int64    |           0    |
-| is_live_streamer         | Is this user a live streamer？ | int64    |           0    |
-| is_video_author          | Has this user uploaded any video？ | int64    |           0    |
-| follow_user_num          | The number of users that this user follows. | int64    |           5    |
-| follow_user_num_range    | The range of the number of users that this user follows. In the set of {'0', '(0,10]', '(10,50]', '(100,150]', '(150,250]', '(250,500]', '(50,100]', '500+'} | str    |     "(0,10]"  |
-| fans_user_num            | The number of the fans of this user. | int64    |           0    |
-| fans_user_num_range      | The range of the number of fans of this user. In the set of {'0', '[1,10)', '[10,100)', '[100,1k)', '[1k,5k)',  '[5k,1w)', '[1w,10w)'} | str    |           "0"  |
-| friend_user_num          | The number of friends that this user has. | int64    |           0    |
-| friend_user_num_range    | The range of the number of friends that this user has.  In the set of {'0', '[1,5)', '[5,30)', '[30,60)', '[60,120)', '[120,250)', '250+'} | str    |           "0"  |
-| register_days            | The days since this user has registered. | int64    |         107    |
-| register_days_range      | The range of the registered days. In the set of {'15-30', '31-60', '61-90', '91-180', '181-365', '366-730', '730+'}. | str    |       "61-90"  |
-| onehot_feat0             | An encrypted feature of the user. Each value indicate the position of "1" in the one-hot vector. Range: {0,1} | int64    |           0    |
-| onehot_feat1             | An encrypted feature. Range: {0, 1, ..., 7} | int64    |           1    |
-| onehot_feat2             | An encrypted feature. Range: {0, 1, ..., 29} | int64    |          17    |
-| onehot_feat3             | An encrypted feature. Range: {0, 1, ..., 1075} | int64    |         638    |
-| onehot_feat4             | An encrypted feature. Range: {0, 1, ..., 11} | int64    |         2    |
-| onehot_feat5             | An encrypted feature. Range: {0, 1, ..., 9} | int64    |           0    |
-| onehot_feat6             | An encrypted feature. Range: {0, 1, 2} | int64    |           1    |
-| onehot_feat7             | An encrypted feature. Range: {0, 1, ..., 46} | int64    |           6    |
-| onehot_feat8             | An encrypted feature. Range: {0, 1, ..., 339} | int64    |         184    |
-| onehot_feat9             | An encrypted feature. Range: {0, 1, ..., 6} | int64    |           6    |
-| onehot_feat10            | An encrypted feature. Range: {0, 1, ..., 4} | int64    |           3    |
-| onehot_feat11            | An encrypted feature. Range: {0, 1, ..., 2} | int64    |           0    |
-| onehot_feat12            | An encrypted feature. Range: {0, 1} | int64    |           0    |
-| onehot_feat13            | An encrypted feature. Range: {0, 1} | int64    |           0    |
-| onehot_feat14            | An encrypted feature. Range: {0, 1} | int64    |           0    |
-| onehot_feat15            | An encrypted feature. Range: {0, 1} | int64    |           0    |
-| onehot_feat16            | An encrypted feature. Range: {0, 1} | int64    |           0    |
-| onehot_feat17            | An encrypted feature. Range: {0, 1} | int64    |           0    |
+| Field Name:           | Description                                                                                                                                                  | Type  | Example       |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- | ------------- |
+| user_id               | The ID of the user.                                                                                                                                          | int64 | 0             |
+| user_active_degree    | In the set of {'high_active', 'full_active', 'middle_active', 'UNKNOWN'}.                                                                                    | str   | "high_active" |
+| is_lowactive_period   | Is this user in its low active period                                                                                                                        | int64 | 0             |
+| is_live_streamer      | Is this user a live streamer？                                                                                                                               | int64 | 0             |
+| is_video_author       | Has this user uploaded any video？                                                                                                                           | int64 | 0             |
+| follow_user_num       | The number of users that this user follows.                                                                                                                  | int64 | 5             |
+| follow_user_num_range | The range of the number of users that this user follows. In the set of {'0', '(0,10]', '(10,50]', '(100,150]', '(150,250]', '(250,500]', '(50,100]', '500+'} | str   | "(0,10]"      |
+| fans_user_num         | The number of the fans of this user.                                                                                                                         | int64 | 0             |
+| fans_user_num_range   | The range of the number of fans of this user. In the set of {'0', '[1,10)', '[10,100)', '[100,1k)', '[1k,5k)',  '[5k,1w)', '[1w,10w)'}                       | str   | "0"           |
+| friend_user_num       | The number of friends that this user has.                                                                                                                    | int64 | 0             |
+| friend_user_num_range | The range of the number of friends that this user has.  In the set of {'0', '[1,5)', '[5,30)', '[30,60)', '[60,120)', '[120,250)', '250+'}                   | str   | "0"           |
+| register_days         | The days since this user has registered.                                                                                                                     | int64 | 107           |
+| register_days_range   | The range of the registered days. In the set of {'15-30', '31-60', '61-90', '91-180', '181-365', '366-730', '730+'}.                                         | str   | "61-90"       |
+| onehot_feat0          | An encrypted feature of the user. Each value indicate the position of "1" in the one-hot vector. Range: {0,1}                                                | int64 | 0             |
+| onehot_feat1          | An encrypted feature. Range: {0, 1, ..., 7}                                                                                                                  | int64 | 1             |
+| onehot_feat2          | An encrypted feature. Range: {0, 1, ..., 29}                                                                                                                 | int64 | 17            |
+| onehot_feat3          | An encrypted feature. Range: {0, 1, ..., 1075}                                                                                                               | int64 | 638           |
+| onehot_feat4          | An encrypted feature. Range: {0, 1, ..., 11}                                                                                                                 | int64 | 2             |
+| onehot_feat5          | An encrypted feature. Range: {0, 1, ..., 9}                                                                                                                  | int64 | 0             |
+| onehot_feat6          | An encrypted feature. Range: {0, 1, 2}                                                                                                                       | int64 | 1             |
+| onehot_feat7          | An encrypted feature. Range: {0, 1, ..., 46}                                                                                                                 | int64 | 6             |
+| onehot_feat8          | An encrypted feature. Range: {0, 1, ..., 339}                                                                                                                | int64 | 184           |
+| onehot_feat9          | An encrypted feature. Range: {0, 1, ..., 6}                                                                                                                  | int64 | 6             |
+| onehot_feat10         | An encrypted feature. Range: {0, 1, ..., 4}                                                                                                                  | int64 | 3             |
+| onehot_feat11         | An encrypted feature. Range: {0, 1, ..., 2}                                                                                                                  | int64 | 0             |
+| onehot_feat12         | An encrypted feature. Range: {0, 1}                                                                                                                          | int64 | 0             |
+| onehot_feat13         | An encrypted feature. Range: {0, 1}                                                                                                                          | int64 | 0             |
+| onehot_feat14         | An encrypted feature. Range: {0, 1}                                                                                                                          | int64 | 0             |
+| onehot_feat15         | An encrypted feature. Range: {0, 1}                                                                                                                          | int64 | 0             |
+| onehot_feat16         | An encrypted feature. Range: {0, 1}                                                                                                                          | int64 | 0             |
+| onehot_feat17         | An encrypted feature. Range: {0, 1}                                                                                                                          | int64 | 0             |
 
 
 #### 6. Descriptions of the caption and category fields in `kuairec_caption_category.csv` (Added on 2024.06.02)
@@ -239,3 +268,74 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | second_level_category_name | Second-level category name                             | str   | "宠物日常记录"                                               |
 | third_level_category_id    | Thrid-level category ID                                | int64 | 1169                                                         |
 | third_level_category_name  | Third-level category name                              | str   | "宠物狗"                                                     |
+
+
+---
+
+#### 7. Descriptions of the fields in `video_raw_categories_multi.csv` (Raw category annotations)
+
+This file provides **raw, multi-level category annotations** for videos in *KuaiRec*, preserving the original hierarchical taxonomy structure and prediction metadata before aggregation or simplification.
+
+| Field Name:        | Description                                                                 | Type    | Example |
+| ----------------- | --------------------------------------------------------------------------- | ------- | ------- |
+| video_id          | The original ID of the video.                                                | int64   | 10 |
+| category_name     | Name of the assigned category.                                               | str     | "女装" |
+| category_id       | Unique ID of the category.                                                   | int64   | 1043 |
+| category_level    | Hierarchical level of this category (larger value = deeper level).           | int64   | 3 |
+| prob              | Prediction confidence/probability for this category.                         | float64 | 0.8409558 |
+| source            | Source identifier of the category annotation (e.g., model/system).           | int64   | 1 |
+| upload_date       | Upload date of the video (format: YYYYMMDD).                                 | int64   | 20200425 |
+| category_online   | Whether this category is currently online/active.                            | int64   | 1 |
+| root_id           | ID of the root (top-level) category.                                         | int64   | 5 |
+| root_name         | Name of the root category.                                                   | str     | "穿搭" |
+| parent_id         | ID of the direct parent category.                                            | int64   | 121 |
+| parent_name       | Name of the direct parent category.                                          | str     | "搭配展示" |
+| type              | Category type or taxonomy identifier.                                        | int64   | 1 |
+
+---
+
+#### 8 Descriptions of the fields in `user_features_raw.csv` (Raw user features)
+
+This file contains **raw user-side features** in *KuaiRec*, including demographic attributes, device information, geographic statistics, and app installation signals, before feature encoding or anonymization.
+
+| Field Name              | Description                                                  | Type    | Example |
+| ----------------------- | ------------------------------------------------------------ | ------- | ------- |
+| user_id                 | The original ID of the user.                                 | int64   | 1 |
+| user_active_degree      | User activity level.                                         | str     | "full_active" |
+| is_lowactive_period     | Whether the user is in a low-activity period.                | int64   | 0 |
+| gender                  | User gender.                                                 | str     | "F" |
+| age_range               | Age range bucket of the user.                                | str     | "24-30" |
+| is_live_author          | Whether the user is a live-stream author.                    | int64   | 0 |
+| is_photo_author         | Whether the user uploads photos/videos.                     | int64   | 0 |
+| follow_user_num         | Number of users this user follows.                           | int64   | 386 |
+| follow_user_num_range   | Bucketed range of followed users.                            | str     | "(250,500]" |
+| fans_user_num           | Number of followers (fans).                                  | int64   | 4 |
+| fans_user_num_range     | Bucketed range of fans.                                      | str     | "[1,10)" |
+| friend_user_num         | Number of mutual friends.                                    | int64   | 2 |
+| friend_user_num_range   | Bucketed range of friends.                                   | str     | "[1,5)" |
+| phone_brand             | Brand of the user’s phone.                                   | str     | "小米" |
+| phone_model             | Phone model.                                                 | str     | "xiaomi(redmi 4a)" |
+| mod_price               | Price of the phone model (RMB).                              | int64   | 599 |
+| fre_country             | Most frequent country of usage.                              | str     | "中国" |
+| fre_country_region      | Frequent country region.                                     | str     | "南方" |
+| fre_province            | Most frequent province.                                      | str     | "广东" |
+| fre_city                | Most frequent city.                                          | str     | "江门" |
+| fre_city_level          | City tier/level.                                             | str     | "三线城市" |
+| fre_community_type      | Community type of frequent location.                         | str     | "城区" |
+| register_days           | Days since user registration.                                | int64   | 327 |
+| register_days_range     | Bucketed range of registration days.                         | str     | "181-365" |
+| is_install_douyin       | Whether Douyin is installed.                                 | int64   | 0 |
+| is_install_huoshan      | Whether Huoshan is installed.                                | int64   | 0 |
+| is_install_xigua        | Whether Xigua Video is installed.                            | int64   | 0 |
+| is_install_douyu        | Whether Douyu is installed.                                  | int64   | 0 |
+| is_install_huya         | Whether Huya is installed.                                   | int64   | 0 |
+| is_install_yy           | Whether YY is installed.                                     | int64   | 0 |
+| platform                | Device platform.                                             | str     | "ANDROID_PHONE" |
+| os_version              | Operating system version.                                    | str/int | 23 |
+| app_download_channel    | App download channel.                                        | str     | "XIAOMI" |
+| app_version             | Full application version string.                             | str     | "2.5.1.350" |
+| app_major_version       | Major application version.                                   | str     | "2.5" |
+| app_minor_version       | Minor application version.                                   | str     | "2.5.1" |
+| isp                     | Internet service provider.                                   | str     | "中国电信" |
+
+---
