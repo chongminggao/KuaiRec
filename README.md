@@ -38,6 +38,15 @@ We provide some simple statistics of this dataset [here](https://kuairec.com/Sta
 
 ## News!
 
+**2026.01.03: To support more fine-grained and in-depth research, we release additional raw features for users and items.**  
+
+- We provide two raw feature files:  
+  - `video_raw_categories_multi.csv` (Raw category annotations)  
+  - `user_features_raw.csv` (Raw user features)  
+- These files preserve the original hierarchical category structure and rich user-side attributes before further processing or encoding, and are suitable for research on taxonomy-aware modeling, user profiling, and representation learning.  
+- The detailed descriptions of these raw features are available [here](#7-descriptions-of-the-fields-in-video_raw_categories_multicsv-raw-category-annotations).
+
+
 **2024.06.02: To facilitate the application of large language models (LLM) in recommendation systems, we collect caption information and category information for all videos and presented them in text format!** 
 
 - The corresponding caption and category information can be downloaded here: [kuairec_caption_category.csv](https://github.com/chongminggao/KuaiRec/blob/main/kuairec_caption_category.csv). Additionally, we have packaged them into the `KuaiRec.zip` file, which can be downloaded from the download section below.  
@@ -57,15 +66,35 @@ We provide several options to download this dataset:
 
   Option 1. Download via the "wget" command.
 
+`KuaiRec.zip`:
+
 ```shell
- wget https://nas.chongminggao.top:4430/datasets/KuaiRec.zip --no-check-certificate
+ wget https://zenodo.org/records/18164998/files/KuaiRec.zip
  unzip KuaiRec.zip
 ```
+
+`kuairec_caption_category.csv`:
+
+```shell
+ wget https://zenodo.org/records/18164998/files/kuairec_caption_category.csv
+```
+
+`video_raw_categories_multi.csv`:
+
+```shell
+ wget https://zenodo.org/records/18164998/files/video_raw_categories_multi.csv
+```
+
+`user_features_raw.csv`:
+
+```shell
+ wget https://zenodo.org/records/18164998/files/user_features_raw.csv
+```
+
+
   Option 2. Download manually through the following links:
 
-  - Optional link 1: [Google Drive](https://drive.google.com/file/d/1qe5hOSBxzIuxBb1G_Ih5X-O65QElollE/view?usp=sharing)
-
-  - Optional link 2: [USTC Drive (中科大)](https://rec.ustc.edu.cn/share/00cc9940-aa72-11ec-aa7d-d38daca349cb)
+  - Zenodo link: [Zenodo](https://zenodo.org/records/18164998)
 
 The script `loaddata.py` provides a simple way to load the data via Pandas in Python.
 
@@ -241,3 +270,74 @@ The "watch_ratio" can be deemed as the label of the interaction. Note: there is 
 | second_level_category_name | Second-level category name                             | str   | "宠物日常记录"                                               |
 | third_level_category_id    | Thrid-level category ID                                | int64 | 1169                                                         |
 | third_level_category_name  | Third-level category name                              | str   | "宠物狗"                                                     |
+
+
+---
+
+#### 7. Descriptions of the fields in `video_raw_categories_multi.csv` (Raw category annotations)
+
+This file provides **raw, multi-level category annotations** for videos in *KuaiRec*, preserving the original hierarchical taxonomy structure and prediction metadata before aggregation or simplification.
+
+| Field Name:        | Description                                                                 | Type    | Example |
+| ----------------- | --------------------------------------------------------------------------- | ------- | ------- |
+| video_id          | The original ID of the video.                                                | int64   | 10 |
+| category_name     | Name of the assigned category.                                               | str     | "女装" |
+| category_id       | Unique ID of the category.                                                   | int64   | 1043 |
+| category_level    | Hierarchical level of this category (larger value = deeper level).           | int64   | 3 |
+| prob              | Prediction confidence/probability for this category.                         | float64 | 0.8409558 |
+| source            | Source identifier of the category annotation (e.g., model/system).           | int64   | 1 |
+| upload_date       | Upload date of the video (format: YYYYMMDD).                                 | int64   | 20200425 |
+| category_online   | Whether this category is currently online/active.                            | int64   | 1 |
+| root_id           | ID of the root (top-level) category.                                         | int64   | 5 |
+| root_name         | Name of the root category.                                                   | str     | "穿搭" |
+| parent_id         | ID of the direct parent category.                                            | int64   | 121 |
+| parent_name       | Name of the direct parent category.                                          | str     | "搭配展示" |
+| type              | Category type or taxonomy identifier.                                        | int64   | 1 |
+
+---
+
+#### 8 Descriptions of the fields in `user_features_raw.csv` (Raw user features)
+
+This file contains **raw user-side features** in *KuaiRec*, including demographic attributes, device information, geographic statistics, and app installation signals, before feature encoding or anonymization.
+
+| Field Name              | Description                                                  | Type    | Example |
+| ----------------------- | ------------------------------------------------------------ | ------- | ------- |
+| user_id                 | The original ID of the user.                                 | int64   | 1 |
+| user_active_degree      | User activity level.                                         | str     | "full_active" |
+| is_lowactive_period     | Whether the user is in a low-activity period.                | int64   | 0 |
+| gender                  | User gender.                                                 | str     | "F" |
+| age_range               | Age range bucket of the user.                                | str     | "24-30" |
+| is_live_author          | Whether the user is a live-stream author.                    | int64   | 0 |
+| is_photo_author         | Whether the user uploads photos/videos.                     | int64   | 0 |
+| follow_user_num         | Number of users this user follows.                           | int64   | 386 |
+| follow_user_num_range   | Bucketed range of followed users.                            | str     | "(250,500]" |
+| fans_user_num           | Number of followers (fans).                                  | int64   | 4 |
+| fans_user_num_range     | Bucketed range of fans.                                      | str     | "[1,10)" |
+| friend_user_num         | Number of mutual friends.                                    | int64   | 2 |
+| friend_user_num_range   | Bucketed range of friends.                                   | str     | "[1,5)" |
+| phone_brand             | Brand of the user’s phone.                                   | str     | "小米" |
+| phone_model             | Phone model.                                                 | str     | "xiaomi(redmi 4a)" |
+| mod_price               | Price of the phone model (RMB).                              | int64   | 599 |
+| fre_country             | Most frequent country of usage.                              | str     | "中国" |
+| fre_country_region      | Frequent country region.                                     | str     | "南方" |
+| fre_province            | Most frequent province.                                      | str     | "广东" |
+| fre_city                | Most frequent city.                                          | str     | "江门" |
+| fre_city_level          | City tier/level.                                             | str     | "三线城市" |
+| fre_community_type      | Community type of frequent location.                         | str     | "城区" |
+| register_days           | Days since user registration.                                | int64   | 327 |
+| register_days_range     | Bucketed range of registration days.                         | str     | "181-365" |
+| is_install_douyin       | Whether Douyin is installed.                                 | int64   | 0 |
+| is_install_huoshan      | Whether Huoshan is installed.                                | int64   | 0 |
+| is_install_xigua        | Whether Xigua Video is installed.                            | int64   | 0 |
+| is_install_douyu        | Whether Douyu is installed.                                  | int64   | 0 |
+| is_install_huya         | Whether Huya is installed.                                   | int64   | 0 |
+| is_install_yy           | Whether YY is installed.                                     | int64   | 0 |
+| platform                | Device platform.                                             | str     | "ANDROID_PHONE" |
+| os_version              | Operating system version.                                    | str/int | 23 |
+| app_download_channel    | App download channel.                                        | str     | "XIAOMI" |
+| app_version             | Full application version string.                             | str     | "2.5.1.350" |
+| app_major_version       | Major application version.                                   | str     | "2.5" |
+| app_minor_version       | Minor application version.                                   | str     | "2.5.1" |
+| isp                     | Internet service provider.                                   | str     | "中国电信" |
+
+---
